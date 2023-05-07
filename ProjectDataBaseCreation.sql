@@ -20,7 +20,6 @@ CREATE TABLE contractor (
 CREATE TABLE zone (
 	z_zoneNo INT PRIMARY KEY,
     z_zoneName VARCHAR(20),
-    z_supervisorFirst VARCHAR(20),
-    z_supervisorLast VARCHAR(20)
+    z_zoneSupervisorID INT
 );
 
