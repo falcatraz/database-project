@@ -13,8 +13,7 @@ CREATE TABLE employee (
 CREATE TABLE contractor (
 	c_contractorID INT PRIMARY KEY,
     c_contractorName VARCHAR(20),
-    c_contactFirst VARCHAR(20),
-    c_contractLast VARCHAR(20),
+    c_contactName VARCHAR(40),
     c_contractorPhoneNo VARCHAR(13)
 );
 
