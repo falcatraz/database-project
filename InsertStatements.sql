@@ -22,4 +22,10 @@ SELECT * FROM department;
 
 -- inserting into contractor
 INSERT INTO contractor (c_contractorid, c_contractorname, c_contact, c_contractorphoneno) VALUES
-(400, "HAP LLC", "Humbert Gonzales", "705-324-8888");
+(400, "HAP LLC", "Humbert Gonzales", "705-324-8888"),
+(401, "Brad & Sons", "Donald Brown", "705-483-9090"),
+(402, "NV5", "Brenda Rosales", "705-351-4301"),
+(403, "Raytheon", "Emily Thompson", "705-543-0001"),
+(404, "Cementech", "Jeremiah Dawson", "705-7850");
+
+SELECT * FROM contractor;
