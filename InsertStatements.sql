@@ -29,3 +29,39 @@ INSERT INTO contractor (c_contractorid, c_contractorname, c_contact, c_contracto
 (404, "Cementech", "Jeremiah Dawson", "705-7850");
 
 SELECT * FROM contractor;
+
+-- inserting into employee
+INSERT INTO employee (e_employeeid, e_firstname, e_lastname, e_phonenumber, titleid, departmentno) VALUES
+(1001, "Francisco", "Alcaraz", "605-666-6666", 1003, 201),
+(1002, "Angela", "Bofin", "605-901-9312", 1001, 201),
+(1003, "Lisa", "Manza", "605-765-9087", 1003, 201),
+(1004, "Matt", "Hermantrout", "605-212-2222", 1002, 201),
+(1005, "Walter", "White", "605-444-4444", 1004, 201),
+(1006, "Ann", "Stacy", "605-897-4301", 1000, 201);
+
+SELECT * FROM employee;
+
+-- inserting into bank account
+INSERT INTO county_bank_account VALUES
+(245600, "Sewers Account", "2017-05-01", 500000, "For equipment", 200),
+(245601, "Watershed Department Acct", "2021-04-23", 500000, "For equipment", 201),
+(245602, "Bridges Department Acct", "2019-03-12", 500000, "For equipment", 202),
+(245603, "Roads and Traspo Acct", "2020-11-11", 500000, "For equipment", 203),
+(245604, "Operations & Maint. Acct", "2017-01-02", 500000, "For equipment", 204);
+
+SELECT * FROM county_bank_account;
+
+-- inserting into consturction contract
+INSERT INTO construction_contract VALUES
+(45600, 400, 1004, "2020-05-03", 30000),
+(45601, 401, 1004, "2021-11-20", 50000),
+(45602, 402, 1004, "2019-12-12", 20000),
+(45603, 403, 1004, "2022-09-01", 10000),
+(45604, 404, 1004, "2021-01-01", 45000);
+
+SELECT * FROM construction_contract;
+
+-- inserting into inspection
+
+
+
