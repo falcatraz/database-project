@@ -131,4 +131,14 @@ CREATE TABLE permit (
     CONSTRAINT pk_permit PRIMARY KEY (pt_permitNo, projectNo),
     CONSTRAINT fk_permproj FOREIGN KEY (projectNo) REFERENCES project(p_projectNo)
 );
+
+-- final associative table for people that work on a project
+CREATE TABLE works_on (
+	employeeID INT,
+    projectNo INT,
+    
+    CONSTRAINT pk_workson PRIMARY KEY (employeeID, projectNo),
+    CONSTRAINT fk_workson FOREIGN KEY (employeeID) REFERENCES employee (e_employeeID),
+    CONSTRAINT fk_workson2 FOREIGN KEY (projectNo) REFERENCES project (p_projectNo)
+);
     
