@@ -89,11 +89,13 @@ SELECT * FROM zone;
 
 -- inserting into project
 INSERT INTO project VALUES
-(80030, "Sandy Creek Tributary", "2013-01-01", "2014-04-15", 1, 45600),
+(80030, "Sandy Creek Tributary", "2013-01-01", NULL, 1, 45600),
 (80031, "Cabrillo Hills Revelon Slough", "2014-12-12", NULL, 4, 45601),
 (80032, "Pike's Ridge Improvements", "2015-09-05", NULL, 2, 45602),
-(80033, "Inyo Basin Uplift", "2013-05-09", "2015-11-11", 3, 45603),
-(80034, "Santana Dam Improvements", "2014-09-01", "2016-02-20", 1, 45604);
+(80033, "Inyo Basin Uplift", "2013-05-09", NULL, 3, 45603),
+(80034, "Santana Dam Improvements", "2014-09-01", NULL, 1, 45604);
+
+UPDATE project SET p_endDate = NULL;
 
 SELECT * FROM project;
 
@@ -109,8 +111,8 @@ SELECT * FROM inspection;
 
 -- inserting into violation
 INSERT INTO violation VALUES
--- (1, 80031, 5001, "2016-07-03", "Illegal dumping of residue"),
--- (2, 80031, 5001, "2016-07-03", "Wrong guardrails");
+(1, 80031, 5001, "2016-07-03", "Illegal dumping of residue"),
+(2, 80031, 5001, "2016-07-03", "Wrong guardrails"),
 (1, 80030, 5000, "2013-04-16", "Illegal dumping");
 
 SELECT * FROM violation;

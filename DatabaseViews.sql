@@ -10,7 +10,7 @@ SELECT * FROM numviolations;
 
 -- 2 creating view to see which employees inspected projects, with the project name and the zone no
 CREATE VIEW seeInspectedSites AS
-SELECT e.e_firstname, e.e_lastname, i.IN_inspectionDate, p.p_projectName, z.z_zoneNo 
+SELECT e.e_employeeID, e.e_firstname, e.e_lastname, i.IN_inspectionDate, p.p_projectName, z.z_zoneNo 
 FROM employee e 
 RIGHT JOIN inspection i ON e.e_employeeID = i.inspectorID 
 RIGHT JOIN project p ON i.projectNo = p.p_projectNo

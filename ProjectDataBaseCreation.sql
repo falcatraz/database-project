@@ -111,12 +111,11 @@ CREATE TABLE inspection (
 CREATE TABLE violation (
 	v_violationNo INT, -- PK
     projectNo INT, -- pk, fk
-    inspectionNo INT, -- pk, fk
+    inspectionNo INT, -- fk
     v_violationDate DATE,
-    v_fineAmount FLOAT,
     v_reason VARCHAR (70),
     
-    CONSTRAINT pk_violation PRIMARY KEY (v_violationNo, projectNo, inspectionNo),
+    CONSTRAINT pk_violation PRIMARY KEY (v_violationNo, projectNo),
     CONSTRAINT fk_vioproj FOREIGN KEY (projectNo) REFERENCES project(p_projectNo),
     CONSTRAINT fk_vioinsp FOREIGN KEY (inspectionNo) REFERENCES inspection(IN_InspectionNo)
 );
