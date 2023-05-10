@@ -7,7 +7,8 @@ INSERT INTO job_title (j_titleid, j_titlename, j_hourlyrate) VALUES
 (1002, "Engineer Tech", 32.09),
 (1003, "Student Worker", 15.75),
 (1004, "Contract Specialist", 30.01),
-(1005, "Supervisor", 47.90);
+(1005, "Supervisor", 47.90),
+(1006, "Inspector", 31.01);
 
 SELECT * FROM job_title;
 #DELETE FROM job_title;
@@ -46,7 +47,9 @@ INSERT INTO employee (e_employeeid, e_firstname, e_lastname, e_phonenumber, titl
 (1008, "Miley", "Hu", "605-209-9090", 1005, 201),
 (1009, "Erik", "Villanueva", "605-001-9942", 1005, 201),
 (1010, "Cristian", "Eriksen", "605-902-9311", 1005, 201),
-(1011, "Selma", "Witheford", "605-805-0911", 1005, 201);
+(1011, "Selma", "Witheford", "605-805-0911", 1005, 201),
+(1012, "Natalie", "Arroyo", "605-808-7023", 1006, 201),
+(1013, "Dan", "Bugarin", "605-070-7011", 1006, 201);
 
 SELECT * FROM employee;
 #DELETE FROM employee;
@@ -57,7 +60,8 @@ INSERT INTO county_bank_account VALUES
 (245601, "Watershed Department Acct", "2001-04-23", 500000, "For equipment", 201),
 (245602, "Bridges Department Acct", "2002-03-12", 500000, "For equipment", 202),
 (245603, "Roads and Traspo Acct", "2000-11-11", 500000, "For equipment", 203),
-(245604, "Operations & Maint. Acct", "2001-01-02", 500000, "For equipment", 204);
+(245604, "Operations & Maint. Acct", "2001-01-02", 500000, "For equipment", 204),
+(245605, "Sewers Travel", "2003-05-01", 10000, "For travel expenses", 200);
 
 SELECT * FROM county_bank_account;
 #DELETE FROM county_bank_account;
@@ -93,5 +97,32 @@ INSERT INTO project VALUES
 
 SELECT * FROM project;
 
+-- inserting into inspection
+INSERT INTO inspection VALUES
+(5000, "2013-04-15", 80030, 1012),
+(5001, "2016-06-13", 80031, 1013),
+(5002, "2017-10-23", 80032, 1013),
+(5003, "2014-05-09", 80033, 1012),
+(5004, "2014-11-16", 80034, 1013);
 
+SELECT * FROM inspection;
 
+-- inserting into violation
+INSERT INTO violation VALUES
+-- (1, 80031, 5001, "2016-07-03", "Illegal dumping of residue"),
+-- (2, 80031, 5001, "2016-07-03", "Wrong guardrails");
+(1, 80030, 5000, "2013-04-16", "Illegal dumping");
+
+SELECT * FROM violation;
+
+-- inserting into permit
+INSERT INTO permit VALUES
+(1, 80030, "Excavation Permit","2013-01-15"),
+(1, 80031, "Excavation Permit","2014-12-20"),
+(1, 80032, "Excavation Permit","2015-09-15"),
+(1, 80033, "Excavation Permit","2013-06-01"),
+(1, 80034, "Excavation Permit","2014-09-20");
+
+SELECT * FROM permit;
+
+-- creating a procedure for inserting into invoices
