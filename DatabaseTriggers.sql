@@ -21,3 +21,9 @@ DELIMITER ;
 
 SELECT * FROM county_bank_account;
 INSERT INTO invoice VALUES (90001, 500000, curdate(), 245600, 45600);
+
+
+-- idea for more procedures, triggers, etc.....
+-- procedure to retrieve projects within a certain start date
+-- trigger to validate that only a contract specialist can work on a contract
+-- trigger to validate that only an inspector can conduct an inspection
