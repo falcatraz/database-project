@@ -38,3 +38,9 @@ SELECT e.e_employeeID, e.e_firstname, e.e_lastname, p.p_projectNo, p.p_projectNa
 FROM employee e RIGHT JOIN works_on w ON e.e_employeeID = w.employeeID LEFT JOIN project p ON w.projectNo = p.p_projectNo;
 
 SELECT * FROM viewWorkersOnProject;
+
+-- 6 creating a view that will allow us to see the number of permits a project has been granted.
+CREATE VIEW viewNumPermits AS
+SELECT p.p_projectNo, p_projectName, COUNT(p_projectName) FROM project p JOIN permit t ON p.p_projectNo = t.projectNo GROUP BY p_projectNo;
+
+SELECT * FROM viewNumPermits;

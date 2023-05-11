@@ -80,3 +80,69 @@ DELIMITER ;
 
 CALL sp_add_violation(80034, 5004, curdate(), "Toxic Spillage");
 SELECT * FROM violation;
+
+-- 7 procedure that will insert a contractor record
+DELIMITER //
+CREATE PROCEDURE sp_add_contractor(IN coname VARCHAR(20), IN contact VARCHAR(40), IN phone VARCHAR(13))
+BEGIN
+	SET @newID = (SELECT MAX(contractor.c_contractorID) + 1 FROM contractor);
+    INSERT INTO contractor (c_contractorid, c_contractorname, c_contact, c_contractorphoneno) VALUES
+    (@newID, coname, contact, phone);
+END //
+DELIMITER ;
+
+CALL sp_add_contractor("NASA JPL", "Benedict Arnold", "805-901-9313");
+
+SELECT * FROM contractor;
+
+-- 8 procedure that will insert more construction contracts into the database
+DELIMITER //
+CREATE PROCEDURE sp_new_contract(IN contid INT, IN repid INT, IN contrdate DATE, IN amount FLOAT)
+BEGIN
+	SET @new_contract_no = (SELECT MAX(ct_contractNo) + 1 FROM construction_contract);
+    INSERT INTO construction_contract VALUES
+    (@new_contract_no, contid, repid, contrdate, amount);
+
+END //
+DELIMITER ;
+
+CALL sp_new_contract(400, 1004, curdate(), 200000);
+SELECT * FROM construction_contract;
+
+-- 9 procedure that will add a project to our database
+DELIMITER //
+CREATE PROCEDURE sp_new_project(IN pname VARCHAR(40), IN sdate DATE, IN zone INT, IN contno INT)
+BEGIN
+	SET @newProjNum = (SELECT MAX(p_projectNo) + 1 FROM project);
+    INSERT INTO project VALUES
+    (@newProjNum, pname, sdate, NULL, zone, contno);
+END //
+DELIMITER ;
+CALL sp_new_project("Matilija Retrofit", curdate(), 4, 45605);
+SELECT * FROM project;
+
+-- 10 procedure that will insert a new invoice.. trigger is already writen, so no need to worry about that
+DELIMITER //
+CREATE PROCEDURE sp_new_invoice(IN amount FLOAT, IN acct INT, IN conid INT)
+BEGIN
+	SET @newInvoice = (SELECT MAX(i_invoiceNo) + 1 FROM invoice);
+    INSERT INTO invoice VALUES
+    (@newInvoice, amount, curdate(), acct, conid);
+END //
+DELIMITER ;
+CALL sp_new_invoice(25000, 245601, 45605);
+SELECT * FROM invoice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
