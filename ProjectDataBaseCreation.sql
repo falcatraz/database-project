@@ -141,4 +141,13 @@ CREATE TABLE works_on (
     CONSTRAINT fk_workson2 FOREIGN KEY (projectNo) REFERENCES project (p_projectNo)
 );
 
+-- final associative table that will be used to store legacy records of the works_on table
+CREATE TABLE worked_on (
+	employeeID INT,
+    projectNo INT,
+    
+    CONSTRAINT pk_workson2 PRIMARY KEY (employeeID, projectNo),
+    CONSTRAINT fk_workson3 FOREIGN KEY (employeeID) REFERENCES employee (e_employeeID),
+    CONSTRAINT fk_workson4 FOREIGN KEY (projectNo) REFERENCES project (p_projectNo)
+);
 

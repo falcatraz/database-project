@@ -133,6 +133,34 @@ DELIMITER ;
 CALL sp_new_invoice(25000, 245601, 45605);
 SELECT * FROM invoice;
 
+ -- 11 procedure that will create an inspection report
+ DELIMITER //
+ CREATE PROCEDURE sp_add_inspection(IN inspdate DATE, IN pronum INT, IN inspid INT)
+ BEGIN
+		SET @newNum = (SELECT MAX(IN_InspectionNo) + 1 FROM inspection);
+        INSERT INTO inspection VALUES
+        (@newNum, inspdate, pronum, inspid);
+ END //
+DELIMITER ;
+
+CALL sp_add_inspection("2018-10-23", 80032, 1012);
+SELECT * FROM inspection;
+
+-- 12 procedure that will remove a record from the works_on entity since it will
+-- indicate that those employees are no longer active on that project. It will automatically insert into a legacy table
+DELIMITER //
+CREATE PROCEDURE sp_remove_works_on(IN empid INT)
+BEGIN
+	DECLARE old_proj INT;
+    SELECT projectNo INTO old_proj FROM works_on WHERE employeeID = empid;
+    DELETE FROM works_on WHERE employeeID = empid;
+    INSERT INTO worked_on VALUES (empid, old_proj);
+END //
+DELIMITER ;
+
+CALL sp_remove_works_on(1006);
+SELECT * FROM works_on;
+SELECT * FROM worked_on;
 
 
 

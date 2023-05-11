@@ -12,8 +12,8 @@ SELECT * FROM numviolations;
 CREATE VIEW seeInspectedSites AS
 SELECT e.e_employeeID, e.e_firstname, e.e_lastname, i.IN_inspectionDate, p.p_projectName, z.z_zoneNo 
 FROM employee e 
-RIGHT JOIN inspection i ON e.e_employeeID = i.inspectorID 
-RIGHT JOIN project p ON i.projectNo = p.p_projectNo
+JOIN inspection i ON e.e_employeeID = i.inspectorID 
+JOIN project p ON i.projectNo = p.p_projectNo
 JOIN zone z ON p.zoneNo = z.z_zoneNo;
 
 SELECT * FROM seeInspectedSites;
