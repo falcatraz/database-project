@@ -106,7 +106,7 @@ BEGIN
 END //
 DELIMITER ;
 
-CALL sp_new_contract(400, 1004, curdate(), 200000);
+CALL sp_new_contract(400, 1005, curdate(), 200000);
 SELECT * FROM construction_contract;
 
 -- 9 procedure that will add a project to our database
@@ -143,7 +143,7 @@ SELECT * FROM invoice;
  END //
 DELIMITER ;
 
-CALL sp_add_inspection("2018-10-23", 80032, 1012);
+CALL sp_add_inspection(curdate(), 80035, 1012);
 SELECT * FROM inspection;
 
 -- 12 procedure that will remove a record from the works_on entity since it will
