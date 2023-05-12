@@ -12,7 +12,7 @@ CREATE TABLE job_title (
 -- final department table
 CREATE TABLE department (
 	d_departmentID INT PRIMARY KEY,
-    d_departmentName VARCHAR(20),
+    d_departmentName VARCHAR(35),
     d_departmentPhone VARCHAR(13),
     d_departmentLocation VARCHAR(25)
 );
