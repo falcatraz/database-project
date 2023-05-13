@@ -206,4 +206,4 @@ root.mainloop()
 # end of tkinter code
 
 
-# mydb.close()
+mydb.close()
