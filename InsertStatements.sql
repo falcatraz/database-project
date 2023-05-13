@@ -95,7 +95,6 @@ INSERT INTO project VALUES
 (80033, "Inyo Basin Uplift", "2013-05-09", NULL, 3, 45603),
 (80034, "Santana Dam Improvements", "2014-09-01", NULL, 1, 45604);
 
-UPDATE project SET p_endDate = NULL;
 
 SELECT * FROM project;
 
